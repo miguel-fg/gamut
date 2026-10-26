@@ -2,7 +2,7 @@ package pkg
 
 import "github.com/miguel-fg/gamut/pkg/utils"
 
-func bindPaletteParams(num int, offset int) (int, int) {
+func bindAdjacentParams(num int, offset int) (int, int) {
 	if num < 3 {
 		num = 3
 	}
@@ -42,7 +42,7 @@ func buildAngleArray(angle int) ([9]int, [11]int) {
 
 func Adjacent(base utils.HSLColor, num int, offset int) []utils.HSLColor {
 
-	n, a := bindPaletteParams(num, offset)
+	n, a := bindAdjacentParams(num, offset)
 
 	angles, angleIndex := buildAngleArray(a)
 

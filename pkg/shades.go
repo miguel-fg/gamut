@@ -2,19 +2,26 @@ package pkg
 
 import "github.com/miguel-fg/gamut/pkg/utils"
 
-func Shades(base utils.HSLColor, num int) []utils.HSLColor {
+func bindShadesParams(num int) int {
 	if num < 1 {
 		num = 1
 	}
+
+	return num
+}
+
+func Shades(base utils.HSLColor, num int) []utils.HSLColor {
+
+	n := bindShadesParams(num)
 
 	palette := make([]utils.HSLColor, 0)
 
 	const STEP = 5
 
 	i := 1
-	light := base.Lum
+	light := base.Lum - STEP
 
-	for i <= num && light >= 5 {
+	for i <= n && light >= 5 {
 		palette = append(palette, utils.HSLColor{
 			Hue: base.Hue,
 			Sat: base.Sat,
