@@ -81,3 +81,29 @@ func extractHSLValues(hslStr string) (h int, s float64, l float64) {
 
 	return hue, sat, lum
 }
+
+func GetPalleteOffsetArrays(step int) ([MAX_PALETTE_SIZE]int, [11]int) {
+	steps := [MAX_PALETTE_SIZE]int{
+		step * -4,
+		step * -3,
+		step * -2,
+		step * -1,
+		0,
+		step * 1,
+		step * 2,
+		step * 3,
+		step * 4,
+	}
+
+	stepStartIndex := [11]int{-1, -1, -1, 3, 3, 2, 2, 1, 1, 0, 0}
+
+	return steps, stepStartIndex
+}
+
+func ClampPaletteSize(size int) int {
+	return max(MIN_PALETTE_SIZE, min(MAX_PALETTE_SIZE, size))
+}
+
+func ClampAngle(angle int) int {
+	return ((angle % MAX_ANGLE) + MAX_ANGLE) % MAX_ANGLE
+}

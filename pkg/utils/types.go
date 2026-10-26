@@ -2,6 +2,11 @@ package utils
 
 type ColorFormat int
 
+const MIN_PALETTE_SIZE = 3
+const MAX_PALETTE_SIZE = 9
+const MAX_ANGLE = 360
+const MIN_ANGLE = 0
+
 const (
 	FormatHex ColorFormat = iota
 	FormatRGB

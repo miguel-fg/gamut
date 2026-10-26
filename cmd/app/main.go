@@ -11,5 +11,7 @@ func main() {
 
 	hsl := utils.ToHSL(base)
 
-	utils.PrintPalette(pkg.Monochromatic(hsl, 19), utils.FormatHSL)
+	palette := pkg.Tones(hsl, 9)
+
+	utils.PrintPalette(palette, utils.FormatHSL)
 }
