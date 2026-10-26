@@ -7,21 +7,9 @@ import (
 	"github.com/miguel-fg/gamut/pkg/utils"
 )
 
-func bindMonocrhomaticParams(num int) int {
-	if num < 3 {
-		num = 3
-	}
-
-	if num > 19 {
-		num = 19
-	}
-
-	return num
-}
-
 func Monochromatic(base utils.HSLColor, num int) []utils.HSLColor {
 
-	n := bindMonocrhomaticParams(num)
+	n := utils.ClampPaletteSize(num)
 
 	palette := make([]utils.HSLColor, 0)
 
