@@ -19,7 +19,7 @@ func Shades(base utils.HSLColor, num int) []utils.HSLColor {
 	const STEP = 5
 
 	i := 1
-	light := base.Lum
+	light := base.Lum - STEP
 
 	for i <= n && light >= 5 {
 		palette = append(palette, utils.HSLColor{
