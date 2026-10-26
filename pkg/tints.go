@@ -2,10 +2,17 @@ package pkg
 
 import "github.com/miguel-fg/gamut/pkg/utils"
 
-func Tints(base utils.HSLColor, num int) []utils.HSLColor {
+func bindTintsParams(num int) int {
 	if num < 1 {
 		num = 1
 	}
+
+	return num
+}
+
+func Tints(base utils.HSLColor, num int) []utils.HSLColor {
+
+	n := bindTintsParams(num)
 
 	palette := make([]utils.HSLColor, 0)
 
@@ -14,7 +21,7 @@ func Tints(base utils.HSLColor, num int) []utils.HSLColor {
 	i := 1
 	light := base.Lum
 
-	for i <= num && light <= 95 {
+	for i <= n && light <= 95 {
 		palette = append(palette, utils.HSLColor{
 			Hue: base.Hue,
 			Sat: base.Sat,
